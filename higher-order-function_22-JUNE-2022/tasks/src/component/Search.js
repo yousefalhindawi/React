@@ -16,12 +16,12 @@ import { useState } from "react";
 function Search() {  
     let arrayName = ["Khozama", "Mohammad", "Lujain", "Nada", "Ayman"];
 
-    const [search,searchHandler] = useState("");
+    const [search,setSearch] = useState(arrayName.map((name,index) =>(<tr key={index}><th>{name}</th></tr>)));
 
       function yousef(e){
-        let value = e.target.value;
-        let array1 = arrayName.filter((name) => name.includes(value)).map((name,index) =>(<tr key={index}><th>{name}</th></tr>));
-        searchHandler(array1);
+        let value = (e.target.value).toLowerCase();
+        let array1 = arrayName.filter((name) => (name.toLowerCase()).includes(value)).map((name,index) =>(<tr key={index}><th>{name}</th></tr>));
+        setSearch(array1);
     };
     
     // console.log(search);
@@ -40,7 +40,7 @@ function Search() {
       />
       <table className="table">
         <tbody>
-              {console.log(typeof(search))}
+              {/* {console.log(typeof(search))} */}
                       {search}
         </tbody>
       </table>
