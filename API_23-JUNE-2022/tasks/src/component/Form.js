@@ -11,10 +11,6 @@ class Form extends React.Component {
             posts: [],
         };
     }
-
-    changeHandler = (e)=>{
-        this.setState( {[e.target.name] : e.target.value});
-    }
     
 
 
@@ -29,16 +25,6 @@ fetchPosts = async ()=>{
         return this.setState( this.state.posts = posts);
     }
 
-
-    clickHandler = ()=>{
-        
-        const fetchPosts = async ()=>{
-            const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-            const posts = await response.json();
-            return this.setState( this.state.posts = posts);
-        }
-        fetchPosts()
-    }
 
 
 
@@ -63,8 +49,8 @@ fetchPosts = async ()=>{
        
         return (
             <div>
-           
-            <input type="text" value={this.state.email} onKeyUp={this.changeHandler1}/>
+           <label htmlFor="title"></label>
+            <input type="text" id="title" name="title" placeholder="Search for title" value={this.state.email} onKeyUp={this.changeHandler1}/>
             {this.state.posts.map((post, i) => 
                 <ul key={i}>
                 <h2 >{post.id}- {post.title}</h2>
