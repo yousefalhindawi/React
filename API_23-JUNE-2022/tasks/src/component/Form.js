@@ -24,23 +24,6 @@ class Form extends React.Component {
 
   changeHandler1 = (e) => {
     this.setState({ title: e.target.value });
-
-    // const fetchPosts = async () => {
-    //   const response = await fetch(
-    //     "https://jsonplaceholder.typicode.com/posts"
-    //   );
-    //   const posts = await response.json();
-
-    //   this.setState({ title: e.target.value });
-    //   let value = this.state.title.toLowerCase();
-    //   console.log(value);
-    //   let array1 = posts.filter((post) =>
-    //     post.title.toLowerCase().includes(value)
-    //   );
-    //   // console.log(array1);
-    //   this.setState({ posts: array1 });
-    // };
-    // fetchPosts();
   };
 
   render() {
