@@ -57,8 +57,7 @@ class Form extends React.Component {
         />
         { 
       
-      this.state.posts.filter((post) => post.title.toLowerCase().includes(this.state.title.toLowerCase())
-      ).map((post, i) => (
+      this.state.posts.filter((post) => post.title.toLowerCase().includes(this.state.title.toLowerCase())).map((post, i) => (
           <ul key={i}>
             <h2>
               {post.id}- {post.title}
