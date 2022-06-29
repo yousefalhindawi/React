@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "ali"
+    },
+    {
+      "id": 2,
+      "title": "laravel",
+      "author": "sami"
+    },
+    {
+      "id": 3,
+      "title": "PHP",
+      "author": "fadi"
+    },
+    {
+      "id": 4,
+      "title": "react",
+      "author": "shadi"
+    },
+    {
+      "id": 5,
+      "title": "Football",
+      "author": "yousef alhindawi"
+    }
+  ]
+}
