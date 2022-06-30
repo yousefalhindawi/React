@@ -4,7 +4,7 @@ import Nav from './component/Nav'
 import Footer from './component/Footer'
 import Home from './component/Home'
 import About from './component/About'
-import Contact from './component/Contact'
+// import Contact from './component/Contact'
 import Movies from './component/Movies'
 import Movie from './component/Movie'
 import { useState, useEffect } from "react";
