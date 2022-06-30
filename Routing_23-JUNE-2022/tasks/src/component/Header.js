@@ -1,6 +1,7 @@
 import logo from '../logo.svg';
 import { Link, NavLink } from 'react-router-dom';
 import '../App.css';
+
 const Header = ({ onChecked, checked }) => {
     return (
         <header>
