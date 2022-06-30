@@ -10,23 +10,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import { useState } from 'react';
 
-const App = ()=> {
+const App = () => {
   const [posts, setPosts] = useState([]);
   const [post, setPost] = useState({});
-  
-  
-  
- 
-  useEffect(()=>{ 
-    const fetchPosts = async () => {
+
+  const fetchPosts = async () => {
     const response = await fetch("http://127.0.0.1:8000/api/posts");
     const posts = await response.json();
     setPosts(posts);
-  }
-  fetchPosts()
-  },[post])
+  };
 
- 
+  useEffect(() => {
+    fetchPosts();
+  }, [post]);
 
   const deleteHandler = async (id) => {
     // console.log(id)
@@ -37,9 +33,9 @@ const App = ()=> {
     });
     // fetchPosts();
     // this.componentDidMount()
-    setPosts(posts.filter((post)=> post.id !== id))
+    setPosts(posts.filter((post) => post.id !== id));
   };
-  const updateHandler = async (updatedPost,location) => {
+  const updateHandler = async (updatedPost, location) => {
     // console.log(updatedPost.id)
     await fetch(`http://127.0.0.1:8000/api/post/${updatedPost.id}`, {
       method: "PUT",
@@ -47,8 +43,8 @@ const App = ()=> {
       body: JSON.stringify(updatedPost),
     });
     // this.fetchPosts();
-    setPost(updatedPost)
-    location('/')
+    setPost(updatedPost);
+    location("/");
     // window.location.href = "/";
     // <Navigate to="/" replace={true} />
     // return <Link to="/">Home</Link>
@@ -59,7 +55,7 @@ const App = ()=> {
     setPost(data);
   };
 
-  const addHandler = async (addedPost,location) => {
+  const addHandler = async (addedPost, location) => {
     // console.log(addedPost);
     await fetch(`http://127.0.0.1:8000/api/insert`, {
       method: "POST",
@@ -67,41 +63,36 @@ const App = ()=> {
       body: JSON.stringify(addedPost),
     });
     setPost(addedPost);
-    location('/');
+    location("/");
     // window.location.href = "/";
   };
-  
-    return (
-      <BrowserRouter>
-        <div>
-          <Nav />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Post
-                  posts={posts}
-                  onDelete={deleteHandler}
-                  onEdit={editHandler}
-                />
-              }
-            />
-            <Route
-              path="/update"
-              element={
-                <UpdatePost
-                  post={post}
-                  onUpdate={updateHandler}
-                />
-              }
-            />
-            <Route path="/add" element={<AddPost onAdd={addHandler} />} />
 
-            {/* <Route path="/form" element={<Form />} /> */}
-          </Routes>
-        </div>
-      </BrowserRouter>
-    );
-  }
+  return (
+    <BrowserRouter>
+      <div>
+        <Nav />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <Post
+                posts={posts}
+                onDelete={deleteHandler}
+                onEdit={editHandler}
+              />
+            }
+          />
+          <Route
+            path="/update"
+            element={<UpdatePost post={post} onUpdate={updateHandler} />}
+          />
+          <Route path="/add" element={<AddPost onAdd={addHandler} />} />
+
+          {/* <Route path="/form" element={<Form />} /> */}
+        </Routes>
+      </div>
+    </BrowserRouter>
+  );
+};
 
 export default App;
