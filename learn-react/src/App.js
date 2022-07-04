@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import Challenge1 from "./challenge/Challenge1";
-import Challenge2 from "./challenge/Challenge2";
-import Form from "./component/Form";
 import Nav from "./component/Nav";
 import Api from "./component/Api";
 import Post from "./component/Post";
+import About from "./component/About";
+import Contact from "./component/Contact";
+import Login from "./component/Login";
 import UpdatePost from "./component/UpdatePost";
 import AddPost from "./component/AddPost";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -98,14 +98,9 @@ class App extends React.Component {
               }
             />
             <Route path="/add" element={<AddPost onAdd={this.addHandler} />} />
-            {/* <Route  path='/update/:id' element={ <UpdatePost /> } /> */}
-            {/* <Route  path='/add' component={AddPost} /> */}
-            {/* <Challenge1 />
-      <Challenge2 Username='alaa' Email='alaa@gmail.com' image='logo.svg'/>
-      <Challenge2 Username='ali' Email='ali@gmail.com' />
-      <Challenge2 Username= 'sami'  />
-      <Challenge2 Email='fadi@gmail.com'  />
-    <Form /> */}
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact  />} />
+            <Route path="/Login" element={<Login  />} />
           </Routes>
         </div>
       </BrowserRouter>

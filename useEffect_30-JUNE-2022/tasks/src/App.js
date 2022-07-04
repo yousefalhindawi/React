@@ -4,7 +4,7 @@ import Nav from './component/Nav'
 import Footer from './component/Footer'
 import Home from './component/Home'
 import About from './component/About'
-// import Contact from './component/Contact'
+import NotFound from './component/NotFound'
 import Movies from './component/Movies'
 import Movie from './component/Movie'
 import { useState, useEffect } from "react";
@@ -35,6 +35,7 @@ function App() {
     <Route path="/about" element={<About />}/>
     <Route path="/movies" element={<Movies  movies={movies}/>}/>
     <Route path="/movie/:title/:id" element={<Movie />}/>
+    <Route path='*' element={<NotFound />}/>
     </Routes>
     <Footer/>
     </div>

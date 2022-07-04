@@ -109,7 +109,7 @@ fetchPosts = async ()=>{
             {/* <button onClick={this.clickHandlerAdd}>Add</button> */}
             {/* <button onClick={this.clickHandler}>Show</button> */}
             <input type="text" name="search" placeholder="search for title" value={this.state.email} onKeyUp={this.searchHandler}/>
-            {posts.filter((post) => (post.title.toLowerCase()).includes(search)).map((post, i) => 
+            {posts.filter((post) => (post.title.toLowerCase()).includes(search.toLowerCase())).map((post, i) => 
                 <ul key={i}>
                 <h2 >{post.id}- {post.title}</h2>
                 <li >{post.body}</li>
