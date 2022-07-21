@@ -9,11 +9,10 @@ const [password ,setPassword]=useState('');
 
 const [message,handelSubmit,handelLogout] = useAuth(email , password);
 // Handlechange();
-console.log(message);
 // console.log(userPassword);
 
-  return (
-<div className="container" >
+return (
+  <div className="container" >
   <h2>Login</h2>
   <form action="" onSubmit={handelSubmit}>
     <div className="form-group">
@@ -27,6 +26,7 @@ console.log(message);
     <button type="submit" className="btn btn-default">Submit</button>
   </form>
   <h3>{message}</h3>
+
 
 </div>
   );

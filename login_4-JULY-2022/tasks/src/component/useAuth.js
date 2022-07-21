@@ -4,6 +4,7 @@ import { userContext } from './userContext';
 import { useContext } from 'react';
 
  const useAuth = (useremail, userpassword)=>{
+    const location = useNavigate();
    const { user, message, setMessage, isLoggedIn,  setIsLoggedIn } = useContext(userContext);
    // console.log(isLoggedIn)
    const handelLogout = (e) => {
@@ -18,6 +19,7 @@ import { useContext } from 'react';
          //  alert('Login Success');
           setIsLoggedIn(true);
           setMessage('you are Login Success');
+          location('/');
       } else {
          setMessage('fail') ;
       }
